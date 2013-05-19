@@ -1,0 +1,32 @@
+{
+  "name": "intercept-events",
+  "version": "0.1.0",
+  "description": "Intercept (add listeners to) all events from events.EventEmitter.",
+  "keywords":[
+    "intercept",
+    "events",
+    "EventEmitter",
+    "listeners",
+    "emit",
+    "callback"
+  ],
+  "author": "Dan Larsen",
+  "maintainers": [{
+    "name": "Dan Larsen",
+    "email": "dan@techba.se",
+    "url": "http://github.com/morphar"
+  }],
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/morphar/intercept-events.git"
+  },
+  "github": "http://github.com/morphar/intercept-events",
+  "bugs": {
+    "url": "http://github.com/morphar/intercept-events/issues"
+  },
+  "license": "MIT",
+  "main": "./index.js",
+  "engines": {
+    "node": ">=0.8.0"
+  }
+}
