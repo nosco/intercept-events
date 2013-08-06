@@ -18,11 +18,11 @@
   }],
   "repository": {
     "type": "git",
-    "url": "http://github.com/morphar/intercept-events.git"
+    "url": "http://github.com/nosco/intercept-events.git"
   },
-  "github": "http://github.com/morphar/intercept-events",
+  "github": "http://github.com/nosco/intercept-events",
   "bugs": {
-    "url": "http://github.com/morphar/intercept-events/issues"
+    "url": "http://github.com/nosco/intercept-events/issues"
   },
   "license": "MIT",
   "main": "./index.js",
