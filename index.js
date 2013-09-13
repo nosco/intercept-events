@@ -1,11 +1,15 @@
 var util = require('util');
 var EventEmitter = require('events').EventEmitter;
 
+var interceptEvents = function() {
+  EventEmitter.call(this);
+  this.allIntercepters = [];
+};
+util.inherits(interceptEvents, EventEmitter);
 
-EventEmitter.prototype.emit2 = EventEmitter.prototype.emit;
 
-EventEmitter.prototype.emit = function(type) {
-  this.allIntercepters = this.allIntercepters || [];
+interceptEvents.prototype.emit = function(type) {
+  
   if(this.allIntercepters.length > 0) {
     for(var i=0 ; i < this.allIntercepters.length ; i++) {
       if(typeof this.allIntercepters[i] === 'function') {
@@ -13,15 +17,15 @@ EventEmitter.prototype.emit = function(type) {
       }
     }
   }
-  this.emit2.apply(this, arguments);
+  EventEmitter.prototype.emit.apply(this, arguments);
 }
 
-EventEmitter.prototype.addIntercepter = function(listener) {
+interceptEvents.prototype.addIntercepter = function(listener) {
   this.allIntercepters = this.allIntercepters || [];
   this.allIntercepters.push(listener);
 };
 
-EventEmitter.prototype.removeIntercepter = function(listener) {
+interceptEvents.prototype.removeIntercepter = function(listener) {
   this.allIntercepters = this.allIntercepters || [];
   if(this.allIntercepters.length > 0) {
     for(var i=(this.allIntercepters.length-1) ; i >= 0 ; i--) {
@@ -32,4 +36,4 @@ EventEmitter.prototype.removeIntercepter = function(listener) {
     }
   }
 };
-module.exports = EventEmitter;
+module.exports = interceptEvents;
