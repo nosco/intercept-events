@@ -9,7 +9,6 @@ util.inherits(interceptEvents, EventEmitter);
 
 
 interceptEvents.prototype.emit = function(type) {
-  
   if(this.allIntercepters.length > 0) {
     for(var i=0 ; i < this.allIntercepters.length ; i++) {
       if(typeof this.allIntercepters[i] === 'function') {
