@@ -1,6 +1,5 @@
 var util = require('util');
-var EventEmitter = require('events').EventEmitter;
-var interceptEvents = require('./index');
+var EventEmitter = require('./index');
 
 var MyClass = function() {
   EventEmitter.call(this);
@@ -27,11 +26,11 @@ var myListener2 = function() {
   console.log(arguments);
 };
 
-interceptEvents.addListener(myListener1);
-interceptEvents.addListener(myListener2);
+myClass.addIntercepter(myListener1);
+myClass.addIntercepter(myListener2);
 
 myClass.test();
 
-interceptEvents.removeListener(myListener2);
+myClass.removeIntercepter(myListener2);
 
 myClass.test();
